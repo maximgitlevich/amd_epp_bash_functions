@@ -1,6 +1,9 @@
+#!/bin/bash
+
 get_epp_hint() {
     cat /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
 }
+
 set_epp_hint() {
   local scaling_driver=$(</sys/devices/system/cpu/cpu0/cpufreq/scaling_driver)
   if [ "$scaling_driver" == "amd-pstate-epp" ]; then
